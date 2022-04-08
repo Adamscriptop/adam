@@ -1,0 +1,91 @@
+-- enjoy
+
+local lp = game:FindService("Players").LocalPlayer
+
+local function gplr(String)
+
+	local Found = {}	local strl = String:lower()
+
+	if strl == "all" then
+
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+
+			table.insert(Found,v)
+
+		end
+
+	elseif strl == "others" then
+
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+
+			if v.Name ~= lp.Name then
+
+				table.insert(Found,v)
+
+			end
+
+		end 
+
+	elseif strl == "me" then
+
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+
+			if v.Name == lp.Name then
+
+				table.insert(Found,v)
+
+			end
+
+		end 
+
+	else
+
+		for i,v in pairs(game:FindService("Players"):GetPlayers()) do
+
+			if v.Name:lower():sub(1, #String) == String:lower() then
+
+				table.insert(Found,v)
+
+			end
+
+		end 
+
+	end
+
+	return Found 
+
+end
+
+local function notif(str,dur)
+
+	game:FindService("StarterGui"):SetCore("SendNotification", {
+
+		Title = "admin notification",
+
+		Text = str,
+
+		Icon = "rbxassetid://2005276185",
+
+		Duration = dur or 3
+
+	})
+
+end
+
+--// sds
+
+local h = Instance.new("ScreenGui")
+
+local Main = Instance.new("ImageLabel")
+
+local Top = Instance.new("Frame")
+
+local Title = Instance.new("TextLabel")
+
+local TextBox = Instance.new("TextBox")
+
+local TextButton = Instance.new("TextButton")
+
+--//fsddfsdf
+
+notif("type cmds using : to see command", 5)
